@@ -1,0 +1,20 @@
+import os
+
+searchDir = 'E:\Music'
+
+
+def get_file_paths(directory):
+    file_paths = []  # List which will store all of the full file_paths.
+
+    # Walk the tree.
+    for root, directories, files in os.walk(directory):
+        for filename in files:
+            # Join the two strings in order to form the full file_path.
+            file_loc = os.path.join(root, filename)
+            file_paths.append(file_loc)  # Add it to the list.
+
+    return file_paths  # Self-explanatory.
+
+# Run the above function and store its results in a variable.
+full_file_paths = get_file_paths(searchDir)
+print(full_file_paths)
